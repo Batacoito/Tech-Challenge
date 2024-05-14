@@ -1,4 +1,4 @@
-package br.com.fiap.postech.TechChallenge;
+package br.com.fiap.postech.TechChallenge.entities;
 
 import jakarta.persistence.*;
 
@@ -19,7 +19,7 @@ public class Produto {
 
     public Produto() {}
 
-    public Produto(String urlDaImagem, double preco, String descricao, String nome, UUID id) {
+    public Produto(UUID id, String nome, String descricao, double preco, String urlDaImagem) {
         this.urlDaImagem = urlDaImagem;
         this.preco = preco;
         this.descricao = descricao;

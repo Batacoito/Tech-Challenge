@@ -1,4 +1,4 @@
-package br.com.fiap.postech.TechChallenge;
+package br.com.fiap.postech.TechChallenge.controller.exception;
 
 import java.time.Instant;
 
