@@ -47,4 +47,11 @@ public class ProdutoController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}/?{color}")
+    public ResponseEntity<ProdutoDTO> updateColor(@PathVariable UUID id, @PathVariable String color){
+        var produto = service.findById(id);
+
+        return ResponseEntity.ok(produto);
+    }
 }
