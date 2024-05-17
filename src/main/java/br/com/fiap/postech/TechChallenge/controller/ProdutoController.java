@@ -1,7 +1,6 @@
 package br.com.fiap.postech.TechChallenge.controller;
 
 import br.com.fiap.postech.TechChallenge.dto.ProdutoDTO;
-import br.com.fiap.postech.TechChallenge.entities.Produto;
 import br.com.fiap.postech.TechChallenge.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -48,7 +47,7 @@ public class ProdutoController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/{modelo}/{cor}/{tamanho}")
+    @PutMapping("/{modelo}/{cor}/{tam}")
     public ResponseEntity<ProdutoDTO> addCarrinho(@PathVariable String modelo, @PathVariable Integer cor, @PathVariable Integer tam){
         service.addCart(modelo, cor, tam);
         return ResponseEntity.noContent().build();
