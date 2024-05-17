@@ -7,6 +7,7 @@ import br.com.fiap.postech.TechChallenge.entities.Produto;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -58,12 +59,19 @@ public class ProdutoService {
         repo.deleteById(id);
     }
 
+    public void addCart(String modelo, Integer cor, Integer tam){
+
+    }
+
     private ProdutoDTO toProdutoDTO(Produto produto) {
         return new ProdutoDTO(produto.getId(),
                 produto.getNome(),
                 produto.getDescricao(),
                 produto.getPreco(),
-                produto.getUrlDaImagem());
+                produto.getUrlDaImagem(),
+                produto.getCor(),
+                produto.getTam(),
+                produto.getQnt());
     }
 
     private Produto toProduto(ProdutoDTO produtoDTO) {
@@ -71,6 +79,9 @@ public class ProdutoService {
                 produtoDTO.nome(),
                 produtoDTO.descricao(),
                 produtoDTO.preco(),
-                produtoDTO.urlDaImagem());
+                produtoDTO.urlDaImagem(),
+                produtoDTO.cor(),
+                produtoDTO.tam(),
+                produtoDTO.qnt());
     }
 }

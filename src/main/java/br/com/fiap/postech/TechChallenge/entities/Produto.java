@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "db_produto")
+@Table(name = "produtos")
 
 public class Produto {
     @Id
@@ -16,15 +16,21 @@ public class Produto {
     private String descricao;
     private double preco;
     private String urlDaImagem;
+    private String cor;
+    private String tam;
+    private int qnt;
 
     public Produto() {}
 
-    public Produto(UUID id, String nome, String descricao, double preco, String urlDaImagem) {
+    public Produto(UUID id, String nome, String descricao, double preco, String urlDaImagem, String cor, String tam, int qnt) {
         this.urlDaImagem = urlDaImagem;
         this.preco = preco;
         this.descricao = descricao;
         this.nome = nome;
         this.id = id;
+        this.cor = cor;
+        this.tam = tam;
+        this.qnt = qnt;
     }
 
     public UUID getId() {
@@ -67,6 +73,30 @@ public class Produto {
         this.urlDaImagem = urlDaImagem;
     }
 
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getTam() {
+        return tam;
+    }
+
+    public void setTam(String tam) {
+        this.tam = tam;
+    }
+
+    public int getQnt() {
+        return qnt;
+    }
+
+    public void setQnt(int qnt) {
+        this.qnt = qnt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,6 +118,8 @@ public class Produto {
                 ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
                 ", urlDaImagem='" + urlDaImagem + '\'' +
+                ", cor='" + cor + '\'' +
+                ", tam='" + tam + '\'' +
                 '}';
     }
 }
