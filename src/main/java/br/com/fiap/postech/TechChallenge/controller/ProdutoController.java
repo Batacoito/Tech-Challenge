@@ -48,10 +48,7 @@ public class ProdutoController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/{modelo}/{cor}/{tam}")
-    public ResponseEntity<ProdutoDTO> addCarrinho(@PathVariable String modelo, @PathVariable Integer cor, @PathVariable Integer tam){
-        service.addCart(modelo, cor, tam);
-        return ResponseEntity.noContent().build();
-    }
+
+
 
 }

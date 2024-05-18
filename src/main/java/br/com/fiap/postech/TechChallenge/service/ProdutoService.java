@@ -7,7 +7,6 @@ import br.com.fiap.postech.TechChallenge.entities.Produto;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -57,10 +56,6 @@ public class ProdutoService {
 
     public void delete(UUID id) {
         repo.deleteById(id);
-    }
-
-    public void addCart(String modelo, Integer cor, Integer tam){
-
     }
 
     private ProdutoDTO toProdutoDTO(Produto produto) {
