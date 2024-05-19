@@ -2,18 +2,11 @@ package br.com.fiap.postech.TechChallenge.service;
 
 import br.com.fiap.postech.TechChallenge.controller.exception.ControllerNotFoundException;
 import br.com.fiap.postech.TechChallenge.dto.CarrinhoDTO;
-import br.com.fiap.postech.TechChallenge.dto.ProdutoDTO;
 import br.com.fiap.postech.TechChallenge.entities.Carrinho;
 import br.com.fiap.postech.TechChallenge.repository.CarrinhoRepository;
-import br.com.fiap.postech.TechChallenge.entities.Produto;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Collection;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class CarrinhoService {
 
