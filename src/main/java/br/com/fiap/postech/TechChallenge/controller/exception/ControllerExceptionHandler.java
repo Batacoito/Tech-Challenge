@@ -10,7 +10,7 @@ import java.time.Instant;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
-    private StandardError err = new StandardError();
+    private final StandardError err = new StandardError();
 
     @ExceptionHandler(ControllerNotFoundException.class)
     public ResponseEntity<StandardError> entityNotFound(ControllerNotFoundException e, HttpServletRequest request) {

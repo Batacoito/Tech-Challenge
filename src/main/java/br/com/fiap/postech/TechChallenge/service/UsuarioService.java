@@ -1,22 +1,30 @@
 package br.com.fiap.postech.TechChallenge.service;
 
 import br.com.fiap.postech.TechChallenge.controller.exception.ControllerNotFoundException;
-import br.com.fiap.postech.TechChallenge.dto.ProdutoDTO;
 import br.com.fiap.postech.TechChallenge.dto.UsuarioDTO;
-import br.com.fiap.postech.TechChallenge.entities.Produto;
 import br.com.fiap.postech.TechChallenge.entities.Usuario;
 import br.com.fiap.postech.TechChallenge.repository.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class UsuarioService {
 
     @Autowired
     private UsuarioRepository repo;
+
+    public Collection<UsuarioDTO> findAll() {
+        var usuarios = repo.findAll();
+        return usuarios
+                .stream()
+                .map(this::toUsuarioDTO)
+                .collect(Collectors.toList());
+    }
 
     public UsuarioDTO save(UsuarioDTO usuarioDTO) {
         Usuario usuario = toUsuario(usuarioDTO);

@@ -1,7 +1,6 @@
 package br.com.fiap.postech.TechChallenge.controller;
 
 import br.com.fiap.postech.TechChallenge.dto.ProdutoDTO;
-import br.com.fiap.postech.TechChallenge.entities.Produto;
 import br.com.fiap.postech.TechChallenge.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -47,8 +46,4 @@ public class ProdutoController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-
-
-
 }
