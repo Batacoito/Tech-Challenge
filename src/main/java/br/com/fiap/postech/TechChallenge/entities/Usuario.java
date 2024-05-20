@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "usuarios")
 
 public class Usuario {
     @Id
@@ -15,15 +15,15 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private String tipoUsr;
+    private String tipoUsuario;
 
     public Usuario() {}
 
-    public Usuario(UUID id, String nome, String email, String senha, String tipoUsr) {
+    public Usuario(UUID id, String nome, String email, String senha, String tipoUsuario) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.tipoUsr = tipoUsr;
+        this.tipoUsuario = tipoUsuario;
     }
 
     public UUID getId() {
@@ -58,12 +58,12 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String getTipoUsr() {
-        return tipoUsr;
+    public String getTipoUsuario() {
+        return tipoUsuario;
     }
 
-    public void setTipoUsr(String tipoUsr) {
-        this.tipoUsr = tipoUsr;
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     @Override
@@ -71,12 +71,12 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id) && Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(senha, usuario.senha) && Objects.equals(tipoUsr, usuario.tipoUsr);
+        return Objects.equals(id, usuario.id) && Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(senha, usuario.senha) && Objects.equals(tipoUsuario, usuario.tipoUsuario);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, email, senha, tipoUsr);
+        return Objects.hash(id, nome, email, senha, tipoUsuario);
     }
 
     @Override
@@ -86,7 +86,7 @@ public class Usuario {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
-                ", tipoUsr='" + tipoUsr + '\'' +
+                ", tipoUsuario='" + tipoUsuario + '\'' +
                 '}';
     }
 }
