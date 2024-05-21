@@ -26,6 +26,26 @@ public class UsuarioService {
                 .collect(Collectors.toList());
     }
 
+    public UsuarioDTO findByEmail(String email) {
+        Collection<UsuarioDTO> usuariosDTO = findAll();
+        for (UsuarioDTO usuarioDTO : usuariosDTO) {
+            if (usuarioDTO.email().equals(email)) {
+                return usuarioDTO;
+            }
+        }
+        return null;
+    }
+
+    public UsuarioDTO login(String email, String senha) {
+        Collection<UsuarioDTO> usuariosDTO = findAll();
+        for (UsuarioDTO usuarioDTO : usuariosDTO) {
+            if (usuarioDTO.email().equals(email) && usuarioDTO.senha().equals(senha)) {
+                return usuarioDTO;
+            }
+        }
+        return null;
+    }
+
     public UsuarioDTO save(UsuarioDTO usuarioDTO) {
         Usuario usuario = toUsuario(usuarioDTO);
         usuario = repo.save(usuario);

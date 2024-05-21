@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
 import java.util.UUID;
 
 @RestController
@@ -34,14 +33,7 @@ public class UsuarioController {
 
     @PostMapping("/login") // Login
     public ResponseEntity<UsuarioDTO> get(@RequestBody Usuario user) {
-        Collection<UsuarioDTO> usuariosDTO = service.findAll();
-        for (UsuarioDTO usuarioDTO : usuariosDTO) {
-            System.out.println(usuarioDTO);
-            System.out.println(user);
-            if (usuarioDTO.email().equals(user.getEmail()) && usuarioDTO.senha().equals(user.getSenha())){
-                return ResponseEntity.status(HttpStatusCode.valueOf(200)).body(usuarioDTO);
-            }
-        }
-        return ResponseEntity.status(HttpStatusCode.valueOf(404)).body(null);
+        UsuarioDTO usuariosDTO = service.login(user.getEmail(), user.getSenha());
+        return ResponseEntity.status(HttpStatusCode.valueOf(200)).body(usuariosDTO);
     }
 }
