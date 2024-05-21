@@ -18,7 +18,7 @@ public class CarrinhoController {
     @Autowired
     private CarrinhoService service;
 
-    @PutMapping("/{id}/sub")
+    @PutMapping("/{id}/sub") // Retira produto ao carrinho
     public ResponseEntity<CarrinhoDTO> subCarrinho(@PathVariable UUID id, @RequestBody CarrinhoDTO carrinhoDTO){
         if (carrinhoDTO.qnt() == 1) {
             service.delete(id);
@@ -30,7 +30,7 @@ public class CarrinhoController {
         }
     }
 
-    @PutMapping("/{id}/add")
+    @PutMapping("/{id}/add") // Adiciona produto ao carrinho
     public ResponseEntity<CarrinhoDTO> addCarrinho(@PathVariable UUID id, @RequestBody CarrinhoDTO carrinhoDTO){
         if (service.findById(id) != null) {
             Carrinho carrinho = new Carrinho(carrinhoDTO.id(), carrinhoDTO.produtoId(), carrinhoDTO.usrId(), carrinhoDTO.qnt() + 1);
